@@ -1,0 +1,30 @@
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <li><%= link_to "Destroy", article_path(@article), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %></li>
+</ul>
+
+<% if @article.images.any? %>
+  <div style="display: flex; flex-direction: column; gap: 2rem">
+    <% @article.images.each do |img| %>
+      <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center;">
+        <%= image_tag img.variant :thumb %>
+        <%= image_tag img.variant :sm %>
+        <%= image_tag img.variant :md %>
+        <%= image_tag img.variant :lg %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<h2>Comments (<%= @article.comments.where(status: "public").count %>)</h2>
+<%= render @article.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form", article: @article %>

@@ -1,0 +1,41 @@
+<%= form_with model: article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% article.errors.full_messages_for(:title).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+    <% article.errors.full_messages_for(:body).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
+  </div>
+
+  <% if article.images.any? %>
+    <div style="display: flex; flex-direction: column; gap: 2rem">
+      <% article.images.each do |img| %>
+        <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center;">
+          <%= form.hidden_field :images, multiple: true, value: img.signed_id if img.persisted? %>
+          <%= image_tag img.variant :sm %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form.label :images %><br>
+  <%= form.file_field :images, multiple: true, direct_upload: true %>
+  <% article.errors.full_messages_for(:images).each do |msg| %>
+    <div><%= msg %></div>
+  <% end %>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || "public" %>
+  </div>
+
+  <div><%= form.submit %></div>
+<% end %>
