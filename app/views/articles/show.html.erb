@@ -14,10 +14,7 @@
   <div style="display: flex; flex-direction: column; gap: 2rem">
     <% @article.images.each do |img| %>
       <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center;">
-        <%= image_tag img.variant :thumb %>
         <%= image_tag img.variant :sm %>
-        <%= image_tag img.variant :md %>
-        <%= image_tag img.variant :lg %>
       </div>
     <% end %>
   </div>
