@@ -21,10 +21,12 @@
         <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center;">
           <%= form.hidden_field :images, multiple: true, value: img.signed_id if img.persisted? %>
           <%= image_tag img.variant :sm %>
-          <%= link_to "Delete image", article_image_path(article, img), data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-          } %>
+          <%= button_tag "Delete image", 
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            formaction: article_image_path(article, img),
+            formmethod: :delete,
+            type: "submit"
+          %>
         </div>
       <% end %>
     </div>
