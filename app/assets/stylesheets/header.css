@@ -1,0 +1,27 @@
+.header {
+  background-color: hsl(240, 5.9%, 10%);
+  padding-block: 1.5rem;
+  color: white;
+
+  .header__content {
+    padding-inline: 1rem;
+    margin: auto;
+    max-width: var(--max-width);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header__body {
+    margin-block-start: 0.5rem;
+  }
+
+  .header__links {
+    display: flex;
+    gap: 2rem;
+    align-items: end;
+  }
+
+  .header__link {
+    color: white;
+  }
+}

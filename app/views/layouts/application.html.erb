@@ -13,11 +13,26 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <!-- <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css"> -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag params[:controller] %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <header class="header">
+      <div class='header__content'>
+        <div>
+          <h1>My Tech Blog</h1>
+          <p class="header__body">Exploring the world of web development</p>
+        </div>
+        <div class='header__links'>
+          <%= link_to "Home", root_path, class: 'header__link' %>
+          <%= link_to "New Article", new_article_path, class: 'header__link' %>
+        </div>
+      </div>
+    </header>
+
     <%= yield %>
   </body>
 </html>
