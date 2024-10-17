@@ -9,7 +9,7 @@
 
   <div class='article-form__field-wrapper'>
     <%= form.label :body %>
-    <%= form.text_area :body, placeholder: 'Enter article body' %>
+    <%= form.text_area :body, placeholder: 'Enter article body', class: 'article-form__textarea' %>
     <% article.errors.full_messages_for(:body).each do |msg| %>
       <div><%= msg %></div>
     <% end %>
@@ -23,6 +23,7 @@
           <%= image_tag img.variant :sm %>
           <%= button_tag "Delete image", 
             data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            class: 'button--red',
             formaction: article_image_path(article, img),
             formmethod: :delete,
             type: "submit"

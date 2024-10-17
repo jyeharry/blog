@@ -153,7 +153,6 @@ textarea {
   padding: 0.5rem 0.75rem; /* px-3 py-2 */
   font-size: 0.875rem; /* text-sm */
   box-shadow: none; /* ring-offset-background */
-  min-height: 200px; /* min-h-[200px] */
 }
 
 textarea::placeholder {
@@ -201,7 +200,7 @@ select:disabled {
   opacity: 0.5; /* disabled:opacity-50 */
 }
 
-input[type='submit'] {
+input[type='submit'], button {
   display: flex;
   align-items: center; /* Optional: if you want to center text/icon vertically */
   padding: 0.5rem 1rem; /* Adjust for your needs */
@@ -213,6 +212,11 @@ input[type='submit'] {
   font-weight: 700;
   cursor: pointer; /* Cursor on hover */
   transition: background-color 0.2s; /* Optional: smooth transition */
+
+  &.button--red {
+    background-color: red; /* bg-primary or your primary color */
+    color: #ffffff; /* text-white */
+  }
 }
 
 input[type='submit']:hover {

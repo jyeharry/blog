@@ -30,4 +30,13 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  .article-form__textarea {
+    min-height: 200px;
+  }
+}
+
+.article-actions {
+  display: flex;
+  gap: 0.5rem;
 }
