@@ -43,7 +43,7 @@
 
   <div class='article-form__field-wrapper'>
     <%= form.label :status %>
-    <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || "public" %>
+    <%= form.select :status, Visible::VALID_STATUSES.map { |s| [s.capitalize, s] }, selected: article.status.capitalize || "Public" %>
   </div>
 
   <%= form.submit %>
