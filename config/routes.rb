@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments
-    resources :images, only: [:destroy]
+    resources :images, only: [ :destroy ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
